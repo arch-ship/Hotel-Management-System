@@ -6,6 +6,14 @@
 
 using namespace std;
 
+// Helper function to capitalize the first letter of a string
+string capitalize(string data) {
+    if (!data.empty()) {
+        data[0] = toupper(data[0]);
+    }
+    return data;
+}
+
 class Room {
 public:
     int roomNo;
@@ -19,11 +27,11 @@ public:
         : roomNo(r), type(t), price(p), isBooked(false), balconyView(view), serviceType(service) {}
 
     void displayRoom() const {
-        // Use fixed widths to ensure columns stay aligned in the console
+        // Maintained fixed widths for console alignment
         cout << left << setw(12) << type
              << "Rs." << setw(8) << (int)price
              << setw(20) << balconyView
-             << setw(22) << serviceType // Adjusted width for better alignment
+             << setw(22) << serviceType
              << (isBooked ? "[BOOKED]" : "[Available]") << endl;
     }
 };
@@ -45,20 +53,23 @@ public:
         cout << "Base Fare: Rs." << basePrice * days << endl;
 
         if (hasPet) {
+            // Logic for specific pet charges
             float petFee = (toLower(petType) == "dog") ? 1500 : 1000;
             totalBill += petFee;
             cout << "Pet Facility Fee: Rs." << petFee << endl;
             cout << "Note: A separate adjacent pet-cabin has been assigned." << endl;
         }
 
-        // Added specific service line to invoice
-        cout << "Service: " << serviceUsed << " (Incl. in Price)" << endl;
+        // Displaying specific service assigned to the room type
+        cout << "Service: " << serviceUsed << " (Included in Price)" << endl;
 
         if (roomType == "Suite" || roomType == "Penthouse" || basePrice >= 7000) {
             cout << "PREMIUM CLASS: Chauffeur service activated." << endl;
         }
 
-        cout << "Food Preference: " << religion << " menu assigned." << endl;
+        // Updated to display capitalized food preference
+        cout << "Food Preference: " << capitalize(religion) << " menu assigned." << endl;
+
         cout << "-------------------------------" << endl;
         cout << "TOTAL PAYABLE: Rs." << totalBill << endl;
         cout << "-------------------------------\n" << endl;
