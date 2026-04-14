@@ -9,7 +9,7 @@ A robust, console-based C++ application designed to manage hotel bookings, user 
 * **Dynamic Billing**: Comprehensive invoice generation including:
     * **Pet-Friendly Logic**: Specific surcharges for Dogs (Rs. 1500) and Cats (Rs. 1000).
     * **Premium Services**: Automatic activation of **Private Chauffeur** or **Courtesy Car** services based on room category.
-    * **Validated Inputs**: Secure data entry for fields like Religion (no numbers allowed!) and automatic capitalization for the final invoice.
+    * **Validated Inputs**: Secure data entry for fields like Religion (no numbers allowed!) to ensure data integrity.
 * **Diverse Room Tiers**: Support for 5 room types ranging from Standard to the luxurious **Penthouse** with panoramic sea views.
 
 ## 🛠️ Installation & Setup
