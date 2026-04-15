@@ -84,7 +84,7 @@ public:
         return false;
     }
 
-    void registerUser() {
+    bool registerUser(string& loggedInUser) {
         string uid, pass;
         cout << "\nCreate User ID: "; cin >> uid;
         cout << "Create Password: ";
@@ -93,7 +93,10 @@ public:
         ofstream file("credentials.txt", ios::app);
         file << uid << " " << pass << endl;
         file.close();
-        cout << "Registration Successful!\n";
+
+        loggedInUser = uid;
+        cout << "Registration Successful! Welcome to the system.\n";
+        return true;
     }
 };
 
